@@ -1,0 +1,41 @@
+{
+  "name": "energy_consumption_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf ./dist && npx tsc",
+    "start": "npm run build && node dist/src/index.js",
+    "dev": "nodemon src/app.ts",
+    "typeorm": "typeorm-ts-node-commonjs"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/express": "^4.17.21",
+    "@types/jsonwebtoken": "^9.0.5",
+    "@types/node": "^20.11.7",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-express": "^4.1.6",
+    "@types/validator": "^13.11.8",
+    "nodemon": "^3.0.3",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "openapi3-ts": "^4.2.1",
+    "pg": "^8.11.3",
+    "swagger-autogen": "^2.23.7",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui": "^5.11.1",
+    "swagger-ui-express": "^5.0.0",
+    "typeorm": "^0.3.20",
+    "validator": "^13.11.0"
+  }
+}
