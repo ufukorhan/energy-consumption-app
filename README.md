@@ -4,6 +4,7 @@
 - [ ] 3. Swagger UI should be used to create API documentation.
 - [ ] 4. The project should be dockerized.
 - [ ] 5. The project should be refactored.
+- [ ] 6. The service and API unit tests of the project should be added
 
 * Tech Stack;
 - [x] 1. nodejs
