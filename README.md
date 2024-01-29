@@ -5,3 +5,13 @@
 - [ ] 4. The project should be dockerized.
 - [ ] 5. The project should be refactored.
 
+* Tech Stack;
+- [x] 1. nodejs
+- [x] 2. express
+- [x] 3. postgresql
+- [x] 4. typeorm
+- [x] 5. typescript
+- [x] 6. jwt
+- [ ] 7. swagger
+
+**Note:** The project is not finished yet. It will be completed soon.
