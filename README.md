@@ -16,3 +16,10 @@
 - [ ] 7. swagger
 
 **Note:** The project is not finished yet. It will be completed soon.
+
+* How to run the project?
+- [x] 1. Clone the project.
+- [x] 2. Run the command `npm install` in the project directory.
+- [x] 3. Create a `.env` file in the project directory and add the following environment variables to the file. (You can use the `.env.example` file as a template.)
+- [x] 4. Run the command `npm start` in the project directory.
+- [x] 5. The project will be running on the `http://localhost:3000` address.

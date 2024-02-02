@@ -2,7 +2,6 @@ import { AppDataSource } from "../../config/db";
 import { Endeks } from "../entities/Endeks";
 import { Consumption } from "../entities/Consumption";
 import { User } from "../entities/User";
-import { Between } from "typeorm";
 
 export class EndeksService {
   private endeksRepository = AppDataSource.getRepository(Endeks);
@@ -13,16 +12,19 @@ export class EndeksService {
     return this.endeksRepository.find({ where: { user: { id: userId } } });
   }
 
-  async deleteEndeks(userId: number, endeksId: number) {
+async deleteEndeks(userId: number, endeksId: number) {
+  try {
     const endeks = await this.endeksRepository.findOne({ where: { id: endeksId, user: { id: userId } } });
 
     if (!endeks) {
       throw new Error("Endeks not found");
     }
-
+    // TODO Recalculate consumption entries after deleting an endeks
     await this.endeksRepository.delete({ id: endeksId });
-  
+  } catch (error) {
+    throw error;
   }
+}
 
   async addEndeks(userId: number, value: number, date: Date): Promise<number> {
     try {
