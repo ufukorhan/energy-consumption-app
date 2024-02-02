@@ -64,12 +64,11 @@ export const register = async (req: Request, res: Response) => {
   export const logout = async (req: Request, res: Response) => {
     try {
       const token = req.header("Authorization")?.replace("Bearer ", "");
-      const userId = req.user?.id; 
-
-      if (!token || !userId) {
-        return res.status(400).json({ message: "Token and user id are required." });
+    
+      if (!token) {
+        return res.status(400).json({ message: "Token is required." });
       }  
-      const result = await authService.logoutUser(token , userId);
+      const result = await authService.logoutUser(token, req.user!.id);
     
       return res.status(200).json({ message: result.message });
 
@@ -81,17 +80,11 @@ export const register = async (req: Request, res: Response) => {
 
   export const profile = async (req: Request, res: Response) => {
     try {
-        const userId = req.user?.id;
-        const userEmail = req.user?.email;
 
-        if (!userId || !userEmail) {
-            throw new Error("User information could not be found");
-        }
-
-        return res.status(200).json({
-            userId,
-            userEmail,
-        });
+      const result = await authService.profileUser(req.user!.id);
+    
+      return res.status(200).json(result);
+      
     } catch (error) {
         console.error("Protected Route Error:", error);
         return res.status(401).json({ message: "Could not access user information" });

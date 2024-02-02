@@ -26,6 +26,25 @@ export const authService = {
     };
   },
 
+  profileUser: async (userId: number) => {
+    try {
+
+      const userRepository = AppDataSource.getRepository(User);
+      const user = await userRepository.findOne({ where: { id: userId } });
+      if (!user) {
+        throw new Error("User not found.");
+      }
+      return {
+        userId: user.id,
+        email: user.email,
+        companyName: user.companyName,
+      };
+      
+    } catch (error) {
+      throw error;
+    }
+  },
+
   registerUser: async (email: string, password: string, companyName: string) => {
     try {
       const userRepository = AppDataSource.getRepository(User);

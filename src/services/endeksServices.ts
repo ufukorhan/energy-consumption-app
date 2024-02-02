@@ -55,13 +55,14 @@ export class EndeksService {
       const addedEndeks = await this.endeksRepository.save(newEndeks);
       if (previousEndeks) {
         const previousEndeksDate = new Date(previousEndeks.date);
+
         const dateDifference = Math.abs((addedEndeks.date.getTime() - previousEndeksDate.getTime()) / (1000 * 60 * 60 * 24));
         const consumptionValue = addedEndeks.value - previousEndeks.value;
         const consumptionPerDay = consumptionValue / dateDifference;
 
         // TODO: Add consumption entries for each day
         if (dateDifference > 1) {
-          for (let i = 1; i < dateDifference; i++) {
+          for (let i = 1; i <= dateDifference; i++) {
             const newConsumption = this.consumptionRepository.create({
               user,
               value: consumptionPerDay,
@@ -73,7 +74,7 @@ export class EndeksService {
           const newConsumption = this.consumptionRepository.create({
             user,
             value: consumptionValue,
-            date: new Date(previousEndeksDate.getTime() + (1000 * 60 * 60 * 24)),
+            date: new Date(date),
           });
           await this.consumptionRepository.save(newConsumption);
         }
