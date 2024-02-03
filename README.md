@@ -23,3 +23,10 @@
 - [x] 3. Create a `.env` file in the project directory and add the following environment variables to the file. (You can use the `.env.example` file as a template.)
 - [x] 4. Run the command `npm start` in the project directory.
 - [x] 5. The project will be running on the `http://localhost:3000` address.
+
+* How to run the project with docker?
+- [x] 1. Clone the project.
+- [x] 2. Create a `.env` file in the project directory and add the following environment variables to the file. (You can use the `.env.example` file as a template.)
+- [x] 3. Run the command `docker-compose up` in the project directory.
+- [x] 4. The project will be running on the `http://localhost:3000` address.
+
